@@ -5,9 +5,35 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
+    <style>
+      h1 span{
+        --text-alpha: 0.1;
+        /* text-shadow: 0 0 0.15em #ddd; */
+        color: rgba(255, 255, 255, var(--text-alpha));
+      }
+      h1 span.glow{
+        --text-alpha: 1;
+        text-shadow: 0 0 0.15em #ddd;
+      }
+    </style>
   </head>
   <body>
-    <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <main class="bg-black h-screen text-white">
+      <div class="grid place-items-center h-full text-center">
+        <div class="container mx-auto">
+          <h1 class="text-8xl font-bold" id="greetings">
+            <span class="glow">A</span>
+            <span>V</span>
+            <span>I</span>
+            <span>L</span>
+            <span>L</span>
+            <span>A</span>
+          </h1>
+          <p class="mb-8 mt-6 text-2xl font-semibold">Aku ada hadiah spesial buat kamu!!</p>
+          <button class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-1 focus:ring-gray-200 font-medium rounded px-5 py-2.5">Click me</button>
+        </div>
+      </div>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
