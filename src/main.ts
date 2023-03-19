@@ -3,10 +3,12 @@ import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 Fancybox.bind("[data-fancybox]", {
+  ...Fancybox.defaults,
+  closeButton: true,
   dragToClose: false,
   defaultDisplay: "flex",
   on: {
-    ready: function (fancybox: Fancybox) {
+    ready: function () {
         document.body.classList.remove("loaded");
     },
   },
