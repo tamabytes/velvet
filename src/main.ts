@@ -1,16 +1,20 @@
 import './styles/style.css'
-import gsap  from "gsap"
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-const title = document.querySelector("#greetings");
-const letters = title?.querySelectorAll("span");
-let tl = gsap.timeline({ repeat: -1, });
+Fancybox.bind("[data-fancybox]", {
+  dragToClose: false,
+  defaultDisplay: "flex",
+  on: {
+    ready: function (fancybox: Fancybox) {
+        document.body.classList.remove("loaded");
+    },
+  },
+});
 
-letters?.forEach(function(letter: HTMLSpanElement, index: number) {
-    tl.to(letter, 1, { className: "glow" }).to(letter, 1, {
-      className: "",
-      repeat: -1,
-      yoyo: true,
-    });
-})
+const greeting = document.querySelector("#greetings");
+const chars = greeting?.querySelectorAll("span");
 
-
+chars?.forEach(function(char: HTMLSpanElement, index: number) {
+  char.style.animationDelay = `0.${index}s`;
+});
